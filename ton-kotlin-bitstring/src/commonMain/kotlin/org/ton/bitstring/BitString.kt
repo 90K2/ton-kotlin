@@ -34,6 +34,7 @@ interface BitString : List<Boolean>, Comparable<BitString> {
     fun toByteArray(augment: Boolean = false): ByteArray
     fun toBooleanArray(): BooleanArray
     fun toMutableBitString(): MutableBitString
+    fun clone(): BitString
 
     override fun subList(fromIndex: Int, toIndex: Int): BitString = slice(fromIndex..toIndex)
 

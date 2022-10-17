@@ -109,6 +109,12 @@ class BitStringTest {
         assertEquals("00000000", BitString(List(32) { false }).toString())
         assertEquals("0000000000000000", BitString(List(64) { false }).toString())
     }
+
+    @Test
+    fun `bitstring cloning`() {
+        val original = BitString.binary("101111110000001")
+        assertEquals(original, original.clone())
+    }
 }
 
 fun assertBitString(binary: String, hex: String) {

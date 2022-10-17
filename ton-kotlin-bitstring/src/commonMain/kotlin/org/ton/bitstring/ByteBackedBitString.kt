@@ -39,6 +39,8 @@ open class ByteBackedBitString protected constructor(
 
     override fun toMutableBitString(): MutableBitString = ByteBackedMutableBitString.of(bytes, size)
 
+    override fun clone() = BitString.of(this.toByteArray(), this.size)
+
     override fun contains(element: Boolean): Boolean = any { it == element }
     override fun containsAll(elements: Collection<Boolean>): Boolean = elements.all { contains(it) }
     override fun isEmpty(): Boolean = size == 0

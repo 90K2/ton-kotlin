@@ -9,6 +9,7 @@ interface MutableBitString : BitString, MutableList<Boolean> {
     override operator fun plus(bits: Collection<Boolean>): MutableBitString
     override operator fun plus(bytes: ByteArray): MutableBitString
     override fun plus(bytes: ByteArray, bits: Int): MutableBitString
+    override fun clone(): MutableBitString
 
     override fun subList(fromIndex: Int, toIndex: Int): MutableBitString
 }

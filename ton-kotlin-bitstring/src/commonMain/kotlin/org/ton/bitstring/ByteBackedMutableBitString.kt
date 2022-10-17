@@ -99,6 +99,8 @@ open class ByteBackedMutableBitString(
         TODO("Not yet implemented")
     }
 
+    override fun clone() = BitString.of(this.toByteArray(), this.size).toMutableBitString()
+
     private fun appendWithoutShifting(byteArray: ByteArray, bits: Int) {
         require(size % 8 == 0)
         require(bits % 8 == 0)

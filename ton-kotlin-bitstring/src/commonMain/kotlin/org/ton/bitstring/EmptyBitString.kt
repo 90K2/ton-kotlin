@@ -22,6 +22,8 @@ internal object EmptyBitString : BitString, List<Boolean> by emptyList() {
         throw IndexOutOfBoundsException(indices.toString())
     }
 
+    override fun clone() = BitString()
+
     override fun toByteArray(augment: Boolean): ByteArray =
         byteArrayOf()
 
