@@ -39,6 +39,8 @@ interface CellSlice {
     fun loadBits(length: Int): BitString
     fun preloadBits(length: Int): BitString
 
+    fun loadRemainingBits(): BitString
+
     fun loadInt(length: Int): BigInt
     fun preloadInt(length: Int): BigInt
 
@@ -136,6 +138,8 @@ private open class CellSliceImpl(
         checkBitsOverflow(length)
         return bits.slice(bitsPosition..length)
     }
+
+    override fun loadRemainingBits() = BitString((bitsPosition until bits.size).map { loadBit() })
 
     override fun loadInt(length: Int): BigInt {
         val int = preloadInt(length)
